@@ -1,6 +1,6 @@
 {
-    "home":"Home",
-    "blog":"Blog",
-    "courses":"Courses",
-    "aboutMe":"About me"
+    "home": "Inicio",
+    "blog": "Blog",
+    "courses": "Cursos",
+    "aboutMe": "Sobre mí"
 }

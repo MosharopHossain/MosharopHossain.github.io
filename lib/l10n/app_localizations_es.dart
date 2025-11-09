@@ -9,14 +9,14 @@ class AppLocalizationsEs extends AppLocalizations {
   AppLocalizationsEs([String locale = 'es']) : super(locale);
 
   @override
-  String get home => 'Home';
+  String get home => 'Inicio';
 
   @override
   String get blog => 'Blog';
 
   @override
-  String get courses => 'Courses';
+  String get courses => 'Cursos';
 
   @override
-  String get aboutMe => 'About me';
+  String get aboutMe => 'Sobre mí';
 }

@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:my_portfolio/app_locale_controller.dart';
 import 'package:my_portfolio/home.dart';
 import 'package:my_portfolio/l10n/app_localizations.dart';
+
 import 'package:my_portfolio/style/app_theme.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ProviderScope(
+    child: const MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final locale = ref.watch(appLocaleControllerProvider);
     return MaterialApp(
-      debugShowCheckedModeBanner: false
-      ,
+      debugShowCheckedModeBanner: false,
       localizationsDelegates: [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -32,7 +36,8 @@ class MyApp extends StatelessWidget {
         const Locale('es'), // Spanish, no country code
         // Add other supported locales here
       ],
-      home: Home()
+      locale: Locale(locale.value ?? 'en'),
+      home: Home(),
     );
   }
 }

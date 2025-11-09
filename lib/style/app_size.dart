@@ -1,4 +1,6 @@
 class Insets{
+  static double get med => 12;
+  static double get xs => 4;
   static double maxWidth = 1200.0;
 }
 

@@ -1,12 +1,10 @@
-
-
 import 'package:flutter/material.dart';
 
 class AppColors {
   AppColors._();
 
-  static const primary = Color(0xff561895);
-  static const secondary = Color(0xff110D12);
+  static const primaryColor = Color(0xff561895);
+  static const darkBackgroundColor = Color(0xff110D12);
   static const grey = MaterialColor(100, {
     50: Color(0xffFBFBFB),
     100: Color(0xffE2E2E2),
@@ -19,5 +17,4 @@ class AppColors {
     800: Color(0xff131313),
     900: Color(0xff110D12),
   });
-
 }
