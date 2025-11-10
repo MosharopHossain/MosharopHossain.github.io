@@ -6,6 +6,7 @@ import 'package:my_portfolio/home.dart';
 import 'package:my_portfolio/l10n/app_localizations.dart';
 
 import 'package:my_portfolio/style/app_theme.dart';
+import 'package:my_portfolio/style/app_theme_controller.dart';
 
 void main() {
   runApp(ProviderScope(
@@ -19,6 +20,7 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final locale = ref.watch(appLocaleControllerProvider);
+    final theme = ref.watch(appThemeControllerProvider);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       localizationsDelegates: [
@@ -29,7 +31,7 @@ class MyApp extends ConsumerWidget {
       ],
 
       darkTheme: AppTheme.dark,
-      themeMode: ThemeMode.dark,
+      themeMode: theme.value ?? ThemeMode.dark,
 
       supportedLocales: [
         const Locale('en'), // English, no country code

@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_portfolio/app_text_styles.dart';
-import 'package:my_portfolio/constants/app_menu_list.dart';
 import 'package:my_portfolio/extension.dart';
 import 'package:my_portfolio/style/app_size.dart';
 import 'package:my_portfolio/style/app_theme_controller.dart';
 import 'package:my_portfolio/widgets/appbar/my_appbar.dart';
+import 'package:my_portfolio/widgets/background_blur.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Column(children: [MyAppBar()]));
+    return Scaffold(body: Stack(children: [BackgroundBlur(),  MyAppBar()]));
   }
 }
 
@@ -39,31 +39,6 @@ class AppLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text('My Portfolio', style: context.textStyles.titleLgBold);
-  }
-}
-
-class LargeMenu extends StatelessWidget {
-  const LargeMenu({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      // children: [
-      //   Text(context.texts.home, style: context.textStyles.bodyLgMedium),
-      //   Text(context.texts.courses, style: context.textStyles.bodyLgMedium),
-      //   Text(context.texts.blog, style: context.textStyles.bodyLgMedium),
-      //   Text(context.texts.aboutMe, style: context.textStyles.bodyLgMedium),
-      // ],
-      children: AppMenuList.getItems(context)
-          .map(
-            (menu) => LargeAppBarMenuItem(
-              text: menu.title,
-              isSelected: false,
-              onTap: () {},
-            ),
-          )
-          .toList(),
-    );
   }
 }
 
