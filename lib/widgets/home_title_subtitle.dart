@@ -1,0 +1,37 @@
+import 'package:flutter/material.dart';
+import 'package:my_portfolio/extension.dart';
+import 'package:my_portfolio/widgets/seo_texts.dart';
+import 'package:seo_renderer/seo_renderer.dart';
+
+class HomeTitleSubtitle extends StatelessWidget {
+  const HomeTitleSubtitle({super.key, required this.title, required this.subtitle});
+
+  final String title;
+  final String subtitle;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: context.insets.padding),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SeoTexts(
+            text: title,
+            style: context.textStyles.titleSmBold.copyWith(
+              color: context.colorScheme.onBackground,
+            ),
+            textRendererStyle: TextRendererStyle.header3,
+          ),
+          SeoTexts(
+            text: subtitle,
+            style: context.textStyles.titleSmBold.copyWith(
+              color: context.colorScheme.onSurface,
+            ),
+            textRendererStyle: TextRendererStyle.header4,
+          ),
+        ],
+      ),
+    );
+  }
+}

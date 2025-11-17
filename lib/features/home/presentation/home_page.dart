@@ -2,17 +2,45 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_portfolio/app_text_styles.dart';
 import 'package:my_portfolio/extension.dart';
+import 'package:my_portfolio/features/home/presentation/hero_widget.dart';
+import 'package:my_portfolio/features/home/presentation/home_course_list.dart';
 import 'package:my_portfolio/style/app_size.dart';
 import 'package:my_portfolio/style/app_theme_controller.dart';
 import 'package:my_portfolio/widgets/appbar/my_appbar.dart';
 import 'package:my_portfolio/widgets/background_blur.dart';
+import 'package:my_portfolio/widgets/my_footer.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Stack(children: [BackgroundBlur(),  MyAppBar()]));
+    return Scaffold(
+      body: Stack(children: [
+        BackgroundBlur(),
+        // HeroWidget(),
+        Align(
+          // alignment: Alignment.topCenter,
+          child: Container(
+            constraints: BoxConstraints(maxWidth: Insets.maxWidth),
+            child: CustomScrollView(
+              slivers: [
+                SliverToBoxAdapter(
+                    child: Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: context.insets.padding),
+                  child: HeroWidget(),
+                )),
+                SliverToBoxAdapter(child: HomeCourseList()),
+                // SliverToBoxAdapter(child: ExperiencesBody()),
+                SliverToBoxAdapter(child: MyFooter())
+              ],
+            ),
+          ),
+        ),
+        MyAppBar()
+      ]),
+    );
   }
 }
 

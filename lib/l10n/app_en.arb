@@ -2,5 +2,8 @@
     "home":"Home",
     "blog":"Blog",
     "courses":"Courses",
-    "aboutMe":"About me"
+    "aboutMe":"About me",
+    "shafiMunshi":"Shafi Munshi", 
+    "mobileAppDeveloper":"Mobile App Developer",
+    "cooperationRequest": "Co-operate with me" 
 }

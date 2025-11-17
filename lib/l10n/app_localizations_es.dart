@@ -19,4 +19,13 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get aboutMe => 'Sobre mí';
+
+  @override
+  String get shafiMunshi => 'Shafi Munshi';
+
+  @override
+  String get mobileAppDeveloper => 'Mobile App Developer';
+
+  @override
+  String get cooperationRequest => 'Co-operate with me';
 }

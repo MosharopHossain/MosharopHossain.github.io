@@ -28,6 +28,7 @@ extension StyledContent on BuildContext{
   bool get isMobile => formFactor == FormFactorType.mobile;
   bool get isTablet => formFactor == FormFactorType.tablet;
   bool get isDesktop => formFactor == FormFactorType.desktop;
+  bool get isDesktopOrTablet => isDesktop || isTablet;
 
   AppTextStyles get textStyles{
     switch(formFactor){

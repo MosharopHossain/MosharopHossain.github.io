@@ -121,6 +121,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'About me'**
   String get aboutMe;
+
+  /// No description provided for @shafiMunshi.
+  ///
+  /// In en, this message translates to:
+  /// **'Shafi Munshi'**
+  String get shafiMunshi;
+
+  /// No description provided for @mobileAppDeveloper.
+  ///
+  /// In en, this message translates to:
+  /// **'Mobile App Developer'**
+  String get mobileAppDeveloper;
+
+  /// No description provided for @cooperationRequest.
+  ///
+  /// In en, this message translates to:
+  /// **'Co-operate with me'**
+  String get cooperationRequest;
 }
 
 class _AppLocalizationsDelegate
