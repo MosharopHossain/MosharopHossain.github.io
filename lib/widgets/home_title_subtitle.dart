@@ -16,20 +16,8 @@ class HomeTitleSubtitle extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SeoTexts(
-            text: title,
-            style: context.textStyles.titleSmBold.copyWith(
-              color: context.colorScheme.onBackground,
-            ),
-            textRendererStyle: TextRendererStyle.header3,
-          ),
-          SeoTexts(
-            text: subtitle,
-            style: context.textStyles.titleSmBold.copyWith(
-              color: context.colorScheme.onSurface,
-            ),
-            textRendererStyle: TextRendererStyle.header4,
-          ),
+          
+          
         ],
       ),
     );

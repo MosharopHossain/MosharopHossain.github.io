@@ -35,7 +35,7 @@ class SmallHero extends StatelessWidget {
         Gap(Insets.xl),
         HeroTexts(),
         Gap(Insets.xl),
-        SmallHeroButtons(),
+        // SmallHeroButtons(),
       ],
     );
   }
