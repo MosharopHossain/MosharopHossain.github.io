@@ -22,6 +22,7 @@ class Home extends StatelessWidget {
         Align(
           // alignment: Alignment.topCenter,
           child: Container(
+            padding: EdgeInsets.only(top: Insets.xxl),
             constraints: BoxConstraints(maxWidth: Insets.maxWidth),
             child: CustomScrollView(
               slivers: [

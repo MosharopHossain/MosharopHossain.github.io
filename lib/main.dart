@@ -7,6 +7,7 @@ import 'package:my_portfolio/l10n/app_localizations.dart';
 
 import 'package:my_portfolio/style/app_theme.dart';
 import 'package:my_portfolio/style/app_theme_controller.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(ProviderScope(
@@ -32,7 +33,9 @@ class MyApp extends ConsumerWidget {
 
       darkTheme: AppTheme.dark,
       themeMode: theme.value ?? ThemeMode.dark,
-
+      // theme: AppTheme.light.copyWith(
+      //   textTheme: GoogleFonts.poppinsTextTheme(),
+      // ),
       supportedLocales: [
         const Locale('en'), // English, no country code
         const Locale('es'), // Spanish, no country code

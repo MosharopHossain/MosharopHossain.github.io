@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
 abstract class AppTextStyles {
-  TextStyle get titleSmBold; 
+  TextStyle get titleSmBold;
   TextStyle get bodyMdMedium;
-  TextStyle get titleLgBold; 
+  TextStyle get titleLgBold;
   TextStyle get bodySmRegular;
   TextStyle get bodyLgMedium;
   TextStyle get bodyLgBold;
 }
-
 
 class SmallTextStyles implements AppTextStyles {
   @override
@@ -48,7 +47,6 @@ class SmallTextStyles implements AppTextStyles {
       );
 }
 
-
 class LargeTextStyles implements AppTextStyles {
   @override
   TextStyle get titleSmBold => const TextStyle(
@@ -64,7 +62,7 @@ class LargeTextStyles implements AppTextStyles {
 
   @override
   TextStyle get titleLgBold => const TextStyle(
-        fontSize: 26,
+        fontSize: 40,
         fontWeight: FontWeight.bold,
       );
 

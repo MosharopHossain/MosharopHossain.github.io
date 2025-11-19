@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/app_text_styles.dart';
 import 'package:my_portfolio/style/app_colors.dart';
 import 'package:my_portfolio/style/app_size.dart';
@@ -22,7 +23,6 @@ class AppTheme {
       scaffoldBackgroundColor: AppColors.primaryColor,
       appbarTheme: AppBarTheme(color: AppColors.grey[500]!.withOpacity(.3)),
     );
-    
   }
 
   static ThemeData get dark {
@@ -68,7 +68,7 @@ ThemeData _getThemeData({
         textStyle: elevatedButtonTextStyle,
       ),
     ),
-
+    textTheme: GoogleFonts.kaushanScriptTextTheme(),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: ButtonStyle(
         fixedSize: WidgetStatePropertyAll(Size.fromHeight(40)),

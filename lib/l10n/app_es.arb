@@ -1,9 +1,10 @@
 {
-    "home": "Inicio",
-    "blog": "Blog",
-    "courses": "Cursos",
-    "aboutMe": "Sobre mí",
-    "shafiMunshi": "Shafi Munshi", 
-    "mobileAppDeveloper": "Mobile App Developer",
-    "cooperationRequest": "Co-operate with me" 
+    "home":"Home",
+    "blog":"Blog",
+    "courses":"Courses",
+    "aboutMe":"About me",
+    "shafiMunshi":"Shafi Munshi", 
+    "mobileAppDeveloper":"Mobile App Developer",
+    "cooperationRequest": "Co-operate with me",
+    "flutterDeveloper": "Flutter Developer" 
 }

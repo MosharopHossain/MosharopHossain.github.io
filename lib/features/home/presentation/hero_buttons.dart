@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/extension.dart';
+import 'package:my_portfolio/l10n/app_strings.dart';
 import 'package:my_portfolio/style/app_size.dart';
 import 'package:my_portfolio/widgets/styled_button.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 
 class LargeHeroButtons extends StatelessWidget {
   const LargeHeroButtons({super.key});
@@ -12,9 +14,41 @@ class LargeHeroButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        PrimaryButton(title: context.texts.courses),
-        Gap(Insets.lg),
-        OutlineButton(title: context.texts.cooperationRequest),
+        // PrimaryButton(title: context.texts.courses),
+        TextButton(
+            onPressed: () {
+              launchUrl(
+                  Uri.parse(
+                    'https://github.com/ShafiMunshi',
+                  ),
+                  mode: LaunchMode.externalApplication);
+            },
+            child: Text(
+              AppStrings.github,
+              style: TextStyle(
+                color: Colors.blue,
+                fontFamily: GoogleFonts.poppins().fontFamily,
+                fontStyle: FontStyle.italic,
+                decoration: TextDecoration.underline,
+                decorationColor: Colors.blue,
+              ),
+            )),
+        Gap(Insets.lg / 2),
+        Text('/',
+            style: context.textStyles.bodyLgBold
+                .copyWith(color: context.colorScheme.onSurface)),
+        Gap(Insets.lg / 2),
+        TextButton(
+            onPressed: () {},
+            child: Text(
+              AppStrings.linkedin,
+              style: TextStyle(
+                  color: Colors.blue,
+                  fontFamily: GoogleFonts.poppins().fontFamily,
+                  fontStyle: FontStyle.italic,
+                  decorationColor: Colors.blue,
+                  decoration: TextDecoration.underline),
+            )),
       ],
     );
   }
