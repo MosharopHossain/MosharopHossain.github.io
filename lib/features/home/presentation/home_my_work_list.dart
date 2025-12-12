@@ -11,25 +11,29 @@ const List<ProjectData> _projects = [
   ProjectData(
     title: 'MOJI',
     subtitle: 'YOUR SHOPIFY SITE BUILT IN 7 DAYS OR IT\'S FREE',
-    description: 'We\'ve mastered the art of building high performance Shopify stores. Simply, affordably, and without the headaches.',
+    description:
+        'We\'ve mastered the art of building high performance Shopify stores. Simply, affordably, and without the headaches.',
     imagePath: 'assets/template_mock.jpg',
   ),
   ProjectData(
     title: 'MARKETLEAP',
     subtitle: 'Let\'s get you growing',
-    description: 'Seamless ecommerce for D2C brands. We make it easy, so you can make it big.',
+    description:
+        'Seamless ecommerce for D2C brands. We make it easy, so you can make it big.',
     imagePath: 'assets/template_mock.jpg',
   ),
   ProjectData(
     title: 'EXOPRIME',
     subtitle: 'Premium Investment Solutions',
-    description: 'Innovative financial services with cutting-edge technology for modern investors.',
+    description:
+        'Innovative financial services with cutting-edge technology for modern investors.',
     imagePath: 'assets/template_mock.jpg',
   ),
   ProjectData(
     title: 'LEN FORKAS',
     subtitle: 'INSPIRE YOUR TEAM',
-    description: 'Scientific leadership and speaker expertise to transform your organization.',
+    description:
+        'Scientific leadership and speaker expertise to transform your organization.',
     imagePath: 'assets/template_mock.jpg',
   ),
 ];

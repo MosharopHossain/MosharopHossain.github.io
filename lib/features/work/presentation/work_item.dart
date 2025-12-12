@@ -10,7 +10,7 @@ class ProjectData {
   final String subtitle;
   final String description;
   final String imagePath;
-  
+
   const ProjectData({
     required this.title,
     required this.subtitle,
@@ -21,18 +21,19 @@ class ProjectData {
 
 class WorkItem extends StatefulWidget {
   final ProjectData projectData;
-  
+
   const WorkItem({super.key, required this.projectData});
 
   @override
   State<WorkItem> createState() => _WorkItemState();
 }
 
-class _WorkItemState extends State<WorkItem> with SingleTickerProviderStateMixin {
+class _WorkItemState extends State<WorkItem>
+    with SingleTickerProviderStateMixin {
   bool _isHovered = false;
   late AnimationController _animationController;
   late Animation<double> _blurAnimation;
-  
+
   @override
   void initState() {
     super.initState();
@@ -44,7 +45,7 @@ class _WorkItemState extends State<WorkItem> with SingleTickerProviderStateMixin
       CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
     );
   }
-  
+
   @override
   void dispose() {
     _animationController.dispose();
@@ -190,7 +191,8 @@ class _WorkItemState extends State<WorkItem> with SingleTickerProviderStateMixin
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
                           style: context.textStyles.bodyMdMedium.copyWith(
-                            color: context.colorScheme.onSurface.withOpacity(0.7),
+                            color:
+                                context.colorScheme.onSurface.withOpacity(0.7),
                             height: 1.3,
                             fontSize: 12,
                           ),
