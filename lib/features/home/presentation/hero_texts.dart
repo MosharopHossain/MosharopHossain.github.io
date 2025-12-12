@@ -1,14 +1,23 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:my_portfolio/extension.dart';
 import 'package:my_portfolio/l10n/app_strings.dart';
+import 'package:my_portfolio/style/app_colors.dart';
 import 'package:my_portfolio/style/app_size.dart';
 import 'package:my_portfolio/widgets/seo_texts.dart';
 import 'package:seo_renderer/seo_renderer.dart';
 
-class HeroTexts extends StatelessWidget {
+class HeroTexts extends StatefulWidget {
   const HeroTexts({super.key});
 
+  @override
+  State<HeroTexts> createState() => _HeroTextsState();
+}
+
+class _HeroTextsState extends State<HeroTexts> {
+  int defaultWidth = 40;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -54,33 +63,58 @@ class HeroTexts extends StatelessWidget {
             color: context.colorScheme.onSurface,
           ),
         ),
-        // SeoTexts(
-        //   text: AppStrings.selfTaughtProgrammer,
-        //   textAlign:
-        //       context.isDesktopOrTablet ? TextAlign.start : TextAlign.center,
-        //   textRendererStyle: TextRendererStyle.paragraph,
-        //   style: context.textStyles.bodySmRegular.copyWith(
-        //     color: context.colorScheme.onSurface,
-        //   ),
-        // ),
-        // SeoTexts(
-        //   text: AppStrings.aiMlEnthusiast,
-        //   textAlign:
-        //       context.isDesktopOrTablet ? TextAlign.start : TextAlign.center,
-        //   textRendererStyle: TextRendererStyle.paragraph,
-        //   style: context.textStyles.bodySmRegular.copyWith(
-        //     color: context.colorScheme.onSurface,
-        //   ),
-        // ),
-        // SeoTexts(
-        //   text: AppStrings.competitiveProgrammer,
-        //   textAlign:
-        //       context.isDesktopOrTablet ? TextAlign.start : TextAlign.center,
-        //   textRendererStyle: TextRendererStyle.paragraph,
-        //   style: context.textStyles.bodySmRegular.copyWith(
-        //     color: context.colorScheme.onSurface,
-        //   ),
-        // ),
+        Gap(20),
+
+        MouseRegion(
+          onEnter: (event) {
+            setState(() {
+              defaultWidth = 120;
+            });
+          },
+          onExit: (event) {
+            setState(() {
+              defaultWidth = 40;
+            });
+          },
+          child: Stack(
+            alignment: context.isDesktopOrTablet
+                ? Alignment.centerLeft
+                : Alignment.center,
+            children: [
+              AnimatedContainer(
+                duration: const Duration(milliseconds: 200),
+                width: defaultWidth * 1.0,
+                height: 40,
+                decoration: BoxDecoration(
+                  color: AppColors.primaryColor,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+              AnimatedOpacity(
+                opacity: 1,
+                duration: const Duration(milliseconds: 200),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 12),
+                  child: Row(
+                    mainAxisAlignment: context.isDesktopOrTablet
+                        ? MainAxisAlignment.start
+                        : MainAxisAlignment.center,
+                    children: [
+                      SeoTexts(
+                        text: 'Say Hello',
+                        style: context.textStyles.bodySmRegular.copyWith(
+                          color: AppColors.white,
+                        ),
+                      ),
+                      Icon(Icons.arrow_right_alt,
+                          color: AppColors.white, size: 20),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }
