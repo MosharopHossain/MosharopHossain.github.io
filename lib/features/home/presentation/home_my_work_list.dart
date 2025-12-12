@@ -6,6 +6,34 @@ import 'package:my_portfolio/widgets/home_title_subtitle.dart';
 import 'package:my_portfolio/widgets/seo_texts.dart';
 import 'package:seo_renderer/renderers/text_renderer/text_renderer_style.dart';
 
+// Project data constants
+const List<ProjectData> _projects = [
+  ProjectData(
+    title: 'MOJI',
+    subtitle: 'YOUR SHOPIFY SITE BUILT IN 7 DAYS OR IT\'S FREE',
+    description: 'We\'ve mastered the art of building high performance Shopify stores. Simply, affordably, and without the headaches.',
+    imagePath: 'assets/template_mock.jpg',
+  ),
+  ProjectData(
+    title: 'MARKETLEAP',
+    subtitle: 'Let\'s get you growing',
+    description: 'Seamless ecommerce for D2C brands. We make it easy, so you can make it big.',
+    imagePath: 'assets/template_mock.jpg',
+  ),
+  ProjectData(
+    title: 'EXOPRIME',
+    subtitle: 'Premium Investment Solutions',
+    description: 'Innovative financial services with cutting-edge technology for modern investors.',
+    imagePath: 'assets/template_mock.jpg',
+  ),
+  ProjectData(
+    title: 'LEN FORKAS',
+    subtitle: 'INSPIRE YOUR TEAM',
+    description: 'Scientific leadership and speaker expertise to transform your organization.',
+    imagePath: 'assets/template_mock.jpg',
+  ),
+];
+
 class HomeMyWorkList extends StatefulWidget {
   const HomeMyWorkList({super.key});
 
@@ -73,12 +101,19 @@ class HomeCourseListDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: context.insets.padding),
-      child: Column(
-        children: [
-          WorkItem(),
-          WorkItem(),
-          WorkItem(),
-        ],
+      child: GridView.builder(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          childAspectRatio: 0.7,
+          crossAxisSpacing: 20,
+          mainAxisSpacing: 20,
+        ),
+        itemCount: _projects.length,
+        itemBuilder: (context, index) {
+          return WorkItem(projectData: _projects[index]);
+        },
       ),
     );
   }
@@ -92,11 +127,12 @@ class HomeCourseListMobile extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: context.insets.padding),
       child: Column(
-        children: [
-          WorkItem(),
-          WorkItem(),
-          WorkItem(),
-        ],
+        children: _projects
+            .map((project) => Padding(
+                  padding: const EdgeInsets.only(bottom: 16),
+                  child: WorkItem(projectData: project),
+                ))
+            .toList(),
       ),
     );
   }
