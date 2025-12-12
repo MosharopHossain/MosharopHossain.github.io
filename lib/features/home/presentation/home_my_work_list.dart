@@ -58,6 +58,9 @@ class _HomeMyWorkListState extends State<HomeMyWorkList> {
         if (context.isDesktop) ...[
           HomeCourseListDesktop(),
         ],
+        if (!context.isDesktop) ...[
+          HomeCourseListMobile(),
+        ],
       ],
     );
   }
@@ -65,6 +68,24 @@ class _HomeMyWorkListState extends State<HomeMyWorkList> {
 
 class HomeCourseListDesktop extends StatelessWidget {
   const HomeCourseListDesktop({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: context.insets.padding),
+      child: Column(
+        children: [
+          WorkItem(),
+          WorkItem(),
+          WorkItem(),
+        ],
+      ),
+    );
+  }
+}
+
+class HomeCourseListMobile extends StatelessWidget {
+  const HomeCourseListMobile({super.key});
 
   @override
   Widget build(BuildContext context) {
