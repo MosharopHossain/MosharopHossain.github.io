@@ -65,19 +65,16 @@ class WorkItem extends StatelessWidget {
   Row _workItemDesktop(BuildContext context) {
     return Row(
       children: [
-        LayoutBuilder(builder: (context, constraints) {
-          log('MaxWidth: ${constraints.maxWidth}');
-          return SizedBox(
-            width: context.width > 800 ? 350 : 200,
-            child: Expanded(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(4),
-                child: Image.network('https://picsum.photos/200',
-                    fit: BoxFit.cover),
-              ),
+        SizedBox(
+          width: context.width > 800 ? 350 : 200,
+          child: Expanded(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(4),
+              child:
+                  Image.network('https://picsum.photos/200', fit: BoxFit.cover),
             ),
-          );
-        }),
+          ),
+        ),
         Padding(
           padding: const EdgeInsets.all(12.0),
           child: Column(
