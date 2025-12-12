@@ -54,33 +54,33 @@ class HeroTexts extends StatelessWidget {
             color: context.colorScheme.onSurface,
           ),
         ),
-        SeoTexts(
-          text: AppStrings.selfTaughtProgrammer,
-          textAlign:
-              context.isDesktopOrTablet ? TextAlign.start : TextAlign.center,
-          textRendererStyle: TextRendererStyle.paragraph,
-          style: context.textStyles.bodySmRegular.copyWith(
-            color: context.colorScheme.onSurface,
-          ),
-        ),
-        SeoTexts(
-          text: AppStrings.aiMlEnthusiast,
-          textAlign:
-              context.isDesktopOrTablet ? TextAlign.start : TextAlign.center,
-          textRendererStyle: TextRendererStyle.paragraph,
-          style: context.textStyles.bodySmRegular.copyWith(
-            color: context.colorScheme.onSurface,
-          ),
-        ),
-        SeoTexts(
-          text: AppStrings.competitiveProgrammer,
-          textAlign:
-              context.isDesktopOrTablet ? TextAlign.start : TextAlign.center,
-          textRendererStyle: TextRendererStyle.paragraph,
-          style: context.textStyles.bodySmRegular.copyWith(
-            color: context.colorScheme.onSurface,
-          ),
-        ),
+        // SeoTexts(
+        //   text: AppStrings.selfTaughtProgrammer,
+        //   textAlign:
+        //       context.isDesktopOrTablet ? TextAlign.start : TextAlign.center,
+        //   textRendererStyle: TextRendererStyle.paragraph,
+        //   style: context.textStyles.bodySmRegular.copyWith(
+        //     color: context.colorScheme.onSurface,
+        //   ),
+        // ),
+        // SeoTexts(
+        //   text: AppStrings.aiMlEnthusiast,
+        //   textAlign:
+        //       context.isDesktopOrTablet ? TextAlign.start : TextAlign.center,
+        //   textRendererStyle: TextRendererStyle.paragraph,
+        //   style: context.textStyles.bodySmRegular.copyWith(
+        //     color: context.colorScheme.onSurface,
+        //   ),
+        // ),
+        // SeoTexts(
+        //   text: AppStrings.competitiveProgrammer,
+        //   textAlign:
+        //       context.isDesktopOrTablet ? TextAlign.start : TextAlign.center,
+        //   textRendererStyle: TextRendererStyle.paragraph,
+        //   style: context.textStyles.bodySmRegular.copyWith(
+        //     color: context.colorScheme.onSurface,
+        //   ),
+        // ),
       ],
     );
   }

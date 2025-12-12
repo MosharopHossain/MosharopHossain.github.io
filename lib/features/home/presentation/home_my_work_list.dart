@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:my_portfolio/extension.dart';
 import 'package:my_portfolio/features/work/presentation/work_item.dart';
-import 'package:my_portfolio/widgets/home_title_subtitle.dart';
 import 'package:my_portfolio/widgets/seo_texts.dart';
 import 'package:seo_renderer/renderers/text_renderer/text_renderer_style.dart';
 
 // Project data constants
 const List<ProjectData> _projects = [
   ProjectData(
-    title: 'MOJI',
-    subtitle: 'YOUR SHOPIFY SITE BUILT IN 7 DAYS OR IT\'S FREE',
+    title: 'Tijarah ',
+    subtitle:
+        'Innovative financial services with cutting-edge technology for modern investors.',
     description:
         'We\'ve mastered the art of building high performance Shopify stores. Simply, affordably, and without the headaches.',
     imagePath: 'assets/template_mock.jpg',
@@ -87,10 +87,10 @@ class _HomeMyWorkListState extends State<HomeMyWorkList> {
           ),
         ),
         Gap(32),
-        if (context.isDesktop) ...[
+        if (context.isDesktopOrTablet) ...[
           HomeCourseListDesktop(),
         ],
-        if (!context.isDesktop) ...[
+        if (!context.isDesktopOrTablet) ...[
           HomeCourseListMobile(),
         ],
       ],
@@ -105,18 +105,21 @@ class HomeCourseListDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: context.insets.padding),
-      child: GridView.builder(
+      child: ListView.builder(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          childAspectRatio: 0.7,
-          crossAxisSpacing: 20,
-          mainAxisSpacing: 20,
-        ),
+        // gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        //   crossAxisCount: 2,
+        //   childAspectRatio: 1.45,
+        //   crossAxisSpacing: 20,
+        //   mainAxisSpacing: 20,
+        // ),
         itemCount: _projects.length,
         itemBuilder: (context, index) {
-          return WorkItem(projectData: _projects[index]);
+          return WorkItem(
+            projectData: _projects[index],
+            index: index,
+          );
         },
       ),
     );
@@ -134,7 +137,8 @@ class HomeCourseListMobile extends StatelessWidget {
         children: _projects
             .map((project) => Padding(
                   padding: const EdgeInsets.only(bottom: 16),
-                  child: WorkItem(projectData: project),
+                  child: WorkItem(
+                      projectData: project, index: _projects.indexOf(project)),
                 ))
             .toList(),
       ),

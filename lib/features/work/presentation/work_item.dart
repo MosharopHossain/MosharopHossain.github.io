@@ -1,7 +1,9 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/extension.dart';
+import 'package:my_portfolio/style/app_colors.dart';
 import 'package:my_portfolio/widgets/seo_texts.dart';
 import 'package:seo_renderer/renderers/text_renderer/text_renderer_style.dart';
 
@@ -21,8 +23,9 @@ class ProjectData {
 
 class WorkItem extends StatefulWidget {
   final ProjectData projectData;
+  final int index;
 
-  const WorkItem({super.key, required this.projectData});
+  const WorkItem({super.key, required this.projectData, required this.index});
 
   @override
   State<WorkItem> createState() => _WorkItemState();
@@ -41,7 +44,7 @@ class _WorkItemState extends State<WorkItem>
       duration: const Duration(milliseconds: 300),
       vsync: this,
     );
-    _blurAnimation = Tween<double>(begin: 0.0, end: 2.0).animate(
+    _blurAnimation = Tween<double>(begin: 0.0, end: 0.0).animate(
       CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
     );
   }
@@ -72,9 +75,10 @@ class _WorkItemState extends State<WorkItem>
         builder: (context, child) {
           return Card(
             elevation: _isHovered ? 8 : 2,
-            color: context.colorScheme.surfaceVariant,
+            margin: EdgeInsets.only(bottom: 20),
+            color: Colors.transparent,
             child: context.isDesktopOrTablet
-                ? _workItemDesktop(context)
+                ? _workItemDesktop(context, widget.index)
                 : _workItemMobile(context),
           );
         },
@@ -135,100 +139,171 @@ class _WorkItemState extends State<WorkItem>
     );
   }
 
-  Widget _workItemDesktop(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+  Widget _workItemDesktop(BuildContext context, int index) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Expanded(
-          flex: 3,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(8),
-            child: AnimatedBuilder(
-              animation: _blurAnimation,
-              builder: (context, child) {
-                return ImageFiltered(
-                  imageFilter: ImageFilter.blur(
-                    sigmaX: _blurAnimation.value,
-                    sigmaY: _blurAnimation.value,
-                  ),
-                  child: Container(
-                    width: double.infinity,
-                    child: Image.asset(
-                      widget.projectData.imagePath,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                );
-              },
-            ),
-          ),
-        ),
-        Expanded(
-          flex: 2,
-          child: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+        if (index % 2 == 0) ...[
+          _coverAppImg(),
+        ],
+        _allTextData(context),
+        if (index % 2 != 0) ...[
+          _coverAppImg(),
+        ],
+      ],
+    );
+  }
+
+  Container _allTextData(BuildContext context) {
+    return Container(
+      // flex: 1,
+      width: context.width - 1300,
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SeoTexts(
-                        text: widget.projectData.title,
-                        style: context.textStyles.titleLgBold.copyWith(
-                          color: context.colorScheme.onBackground,
-                          fontWeight: FontWeight.w900,
-                          letterSpacing: 1.0,
-                          fontSize: 18,
-                        ),
-                        textRendererStyle: TextRendererStyle.header3,
-                      ),
-                      Gap(6),
-                      Flexible(
-                        child: SeoTexts(
-                          text: widget.projectData.description,
-                          maxLines: 3,
-                          overflow: TextOverflow.ellipsis,
-                          style: context.textStyles.bodyMdMedium.copyWith(
-                            color:
-                                context.colorScheme.onSurface.withOpacity(0.7),
-                            height: 1.3,
-                            fontSize: 12,
-                          ),
-                        ),
-                      ),
-                    ],
+                SeoTexts(
+                  text: widget.projectData.title,
+                  style: context.textStyles.titleLgBold.copyWith(
+                    color: Colors.amber,
+                    fontWeight: FontWeight.w900,
+                    letterSpacing: 1.0,
+                    fontSize: 24,
+                    fontFamily: GoogleFonts.merienda().fontFamily,
                   ),
+                  textRendererStyle: TextRendererStyle.header3,
                 ),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 8,
-                    ),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: context.colorScheme.onBackground,
-                        width: 1.5,
-                      ),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Text(
-                      'Figma To Webflow',
-                      style: context.textStyles.bodySmRegular.copyWith(
-                        color: context.colorScheme.onBackground,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  decoration: BoxDecoration(
+                    color: Colors.green,
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                ),
+                  child: Text('Android & IOS'),
+                )
               ],
             ),
-          ),
+            Gap(10),
+            SeoTexts(
+              text: widget.projectData.subtitle,
+              style: context.textStyles.titleLgBold.copyWith(
+                color: context.colorScheme.onBackground,
+                fontWeight: FontWeight.w900,
+                letterSpacing: 1.0,
+                fontSize: 22,
+                fontFamily: GoogleFonts.merienda().fontFamily,
+              ),
+              textRendererStyle: TextRendererStyle.header3,
+            ),
+            Gap(5),
+            SeoTexts(
+              text: widget.projectData.description,
+              maxLines: 6,
+              style: context.textStyles.bodySmRegular.copyWith(
+                color: AppColors.grey[200],
+                letterSpacing: 1.0,
+                fontFamily: GoogleFonts.poppins().fontFamily,
+                fontSize: 12,
+              ),
+              textRendererStyle: TextRendererStyle.header3,
+            ),
+            Gap(20),
+            Row(
+              spacing: 20,
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.transparent,
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          side: BorderSide(color: AppColors.white))),
+                  onPressed: () {},
+                  child: Text(
+                    '▶️ Watch Video',
+                    style: TextStyle(
+                        fontFamily: GoogleFonts.poppins().fontFamily,
+                        color: AppColors.white,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.transparent,
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          side: BorderSide(color: AppColors.white))),
+                  onPressed: () {},
+                  child: Text(
+                    'Play Store',
+                    style: TextStyle(
+                        fontFamily: GoogleFonts.poppins().fontFamily,
+                        color: AppColors.white,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.transparent,
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          side: BorderSide(color: AppColors.white))),
+                  onPressed: () {},
+                  child: Text(
+                    'App Store',
+                    style: TextStyle(
+                        fontFamily: GoogleFonts.poppins().fontFamily,
+                        color: AppColors.white,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500),
+                  ),
+                )
+              ],
+            ),
+          ],
         ),
-      ],
+      ),
+    );
+  }
+
+  SizedBox _coverAppImg() {
+    return SizedBox(
+      // flex: 1,
+      height: 300,
+      width: 450,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(8),
+        child: AnimatedBuilder(
+          animation: _blurAnimation,
+          builder: (context, child) {
+            return ImageFiltered(
+              imageFilter: ImageFilter.blur(
+                sigmaX: _blurAnimation.value,
+                sigmaY: _blurAnimation.value,
+              ),
+              child: Container(
+                width: double.infinity,
+                child: Image.asset(
+                  widget.projectData.imagePath,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            );
+          },
+        ),
+      ),
     );
   }
 }

@@ -14,7 +14,7 @@ class HeroWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CreatedUsingFlutter(),
+        
         context.isDesktop || context.isTablet ? LargeHero() : SmallHero(),
       ],
     );

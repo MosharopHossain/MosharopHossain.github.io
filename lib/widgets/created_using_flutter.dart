@@ -10,13 +10,13 @@ class CreatedUsingFlutter extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        FlutterLogo(),
-        Gap(8),
         Text(
-          context.texts.cooperationRequest,
+          'Created using ',
           style: context.textStyles.bodyMdMedium
               .copyWith(color: context.colorScheme.onBackground),
-        )
+        ),
+        Gap(8),
+        FlutterLogo(),
       ],
     );
   }

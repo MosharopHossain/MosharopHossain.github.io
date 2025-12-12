@@ -8,11 +8,12 @@ class AppStrings {
   static const String aboutMe = 'About Me';
   static const String experiences = 'Experiences';
   static const String projects = 'Projects';
-  static const String passionateDeveloper = '- A passionate mobile app developer';
+  static const String passionateDeveloper =
+      '- A full stack mobile app developer based in Bangladesh.\n  Need a mobile app? Let\'s build something amazing together!';
   static const String selfTaughtProgrammer = '- Self taught Programmer';
   static const String aiMlEnthusiast = '- AI/ML Enthusiast';
   static const String competitiveProgrammer = '- Competitive Programmer';
-  
+
   static const String seeMyWork = 'See My Work';
   static const String github = 'Github';
   static const String linkedin = 'LinkedIn';

@@ -29,7 +29,7 @@ class SmallTextStyles implements AppTextStyles {
       );
 
   @override
-  TextStyle get bodySmRegular => const TextStyle(
+  TextStyle get bodySmRegular => TextStyle(
         fontSize: 12,
         fontWeight: FontWeight.normal,
       );

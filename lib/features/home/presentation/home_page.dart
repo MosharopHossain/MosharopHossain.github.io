@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_portfolio/app_text_styles.dart';
 import 'package:my_portfolio/extension.dart';
+import 'package:my_portfolio/features/home/presentation/experiences_body.dart';
 import 'package:my_portfolio/features/home/presentation/hero_widget.dart';
 import 'package:my_portfolio/features/home/presentation/home_my_work_list.dart';
+import 'package:my_portfolio/features/home/presentation/home_tool_list.dart';
 import 'package:my_portfolio/style/app_size.dart';
 import 'package:my_portfolio/style/app_theme_controller.dart';
-import 'package:my_portfolio/widgets/appbar/my_appbar.dart';
 import 'package:my_portfolio/widgets/background_blur.dart';
+import 'package:my_portfolio/widgets/created_using_flutter.dart';
 import 'package:my_portfolio/widgets/my_footer.dart';
 
 class Home extends StatelessWidget {
@@ -18,9 +20,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       body: Stack(children: [
         BackgroundBlur(),
-        // HeroWidget(),
         Align(
-          // alignment: Alignment.topCenter,
           child: Container(
             padding: EdgeInsets.only(top: Insets.xxl),
             constraints: BoxConstraints(maxWidth: Insets.maxWidth),
@@ -32,14 +32,16 @@ class Home extends StatelessWidget {
                       EdgeInsets.symmetric(horizontal: context.insets.padding),
                   child: HeroWidget(),
                 )),
+                SliverToBoxAdapter(child: HomeToolList()),
                 SliverToBoxAdapter(child: HomeMyWorkList()),
-                // SliverToBoxAdapter(child: ExperiencesBody()),
-                SliverToBoxAdapter(child: MyFooter())
+                SliverToBoxAdapter(child: ExperiencesBody()),
+                SliverToBoxAdapter(child: CreatedUsingFlutter()),
+                // SliverToBoxAdapter(child: MyFooter())
               ],
             ),
           ),
         ),
-        MyAppBar()
+        // MyAppBar()
       ]),
     );
   }

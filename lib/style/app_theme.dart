@@ -68,7 +68,7 @@ ThemeData _getThemeData({
         textStyle: elevatedButtonTextStyle,
       ),
     ),
-    textTheme: GoogleFonts.kaushanScriptTextTheme(),
+    textTheme: GoogleFonts.meriendaTextTheme(),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: ButtonStyle(
         fixedSize: WidgetStatePropertyAll(Size.fromHeight(40)),
