@@ -77,7 +77,7 @@ class _WorkItemState extends State<WorkItem>
             elevation: _isHovered ? 8 : 2,
             margin: EdgeInsets.only(bottom: 20),
             color: Colors.transparent,
-            child: context.isDesktopOrTablet
+            child: context.isDesktop
                 ? _workItemDesktop(context, widget.index)
                 : _workItemMobile(context),
           );
@@ -156,13 +156,13 @@ class _WorkItemState extends State<WorkItem>
 
   Container _allTextData(BuildContext context) {
     return Container(
-      // flex: 1,
-      width: context.width - 1300,
+      constraints: BoxConstraints(
+        maxWidth: 600,
+      ),
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -278,11 +278,13 @@ class _WorkItemState extends State<WorkItem>
     );
   }
 
-  SizedBox _coverAppImg() {
-    return SizedBox(
-      // flex: 1,
-      height: 300,
-      width: 450,
+  ConstrainedBox _coverAppImg() {
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+          maxWidth: context.width > 1210 ? 450 : 300,
+          minWidth: context.width > 1210 ? 300 : 200,
+          maxHeight: 300,
+          minHeight: 200),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8),
         child: AnimatedBuilder(
