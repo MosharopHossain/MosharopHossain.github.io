@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:my_portfolio/extension.dart';
 import 'package:my_portfolio/features/home/presentation/home_description.dart';
+import 'package:my_portfolio/style/app_colors.dart';
 import 'package:my_portfolio/widgets/seo_texts.dart';
 import 'package:seo_renderer/renderers/text_renderer/text_renderer_style.dart';
 
@@ -35,10 +36,16 @@ class HomeToolList extends StatelessWidget {
         ),
         const Gap(10),
         Wrap(
+          runAlignment: WrapAlignment.spaceEvenly,
           spacing: 12,
-          runSpacing: 8,
+          // runSpacing: 8,
           children: const [
-            Chip(label: Text('Flutter')),
+            Chip(
+                label: Text(
+                  'Flutter',
+                  style: TextStyle(color: Colors.white),
+                ),
+                color: WidgetStatePropertyAll(Colors.blue)),
             Chip(label: Text('Axum')),
             Chip(label: Text('Firebase')),
             Chip(label: Text('Supabase')),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:my_portfolio/extension.dart';
+import 'package:my_portfolio/style/app_colors.dart';
 import 'package:my_portfolio/widgets/seo_texts.dart';
 import 'package:seo_renderer/renderers/text_renderer/text_renderer_style.dart';
 
@@ -55,14 +56,46 @@ class HomeDescription extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(context.insets.padding),
+      padding: EdgeInsets.symmetric(
+          horizontal: context.insets.padding, vertical: 20),
       decoration: BoxDecoration(
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(12),
       ),
-      child: context.isDesktopOrTablet
-          ? _buildDesktopLayout(context)
-          : _buildMobileLayout(context),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Better App,\nBetter Experience",
+                    textAlign: TextAlign.left,
+                    style: context.textStyles.titleSmBold
+                        .copyWith(color: AppColors.green)),
+                GestureDetector(
+                    onTap: () {},
+                    child: Row(
+                      children: [
+                        Icon(Icons.download, color: AppColors.green),
+                        Text(
+                          'Download CV',
+                          style: context.textStyles.titleSmBold.copyWith(
+                            color: AppColors.green,
+                          ),
+                        ),
+                      ],
+                    ))
+              ],
+            ),
+          ),
+          Gap(15),
+          context.isDesktopOrTablet
+              ? _buildDesktopLayout(context)
+              : _buildMobileLayout(context),
+        ],
+      ),
     );
   }
 

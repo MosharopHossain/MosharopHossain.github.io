@@ -4,7 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/extension.dart';
 import 'package:my_portfolio/style/app_colors.dart';
-import 'package:my_portfolio/widgets/seo_texts.dart';
+import 'package:my_portfolio/widgets/seo_texts.dart'; 
 import 'package:seo_renderer/renderers/text_renderer/text_renderer_style.dart';
 
 class ProjectData {
