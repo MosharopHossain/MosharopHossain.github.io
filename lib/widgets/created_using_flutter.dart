@@ -13,6 +13,7 @@ class CreatedUsingFlutter extends StatelessWidget {
         Text(
           'Created using ',
           style: context.textStyles.bodyMdMedium
+              .copyWith(fontSize: 12)
               .copyWith(color: context.colorScheme.onBackground),
         ),
         Gap(8),

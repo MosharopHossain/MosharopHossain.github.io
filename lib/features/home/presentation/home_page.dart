@@ -4,7 +4,9 @@ import 'package:my_portfolio/app_text_styles.dart';
 import 'package:my_portfolio/extension.dart';
 import 'package:my_portfolio/features/home/presentation/experiences_body.dart';
 import 'package:my_portfolio/features/home/presentation/hero_widget.dart';
+import 'package:my_portfolio/features/home/presentation/home_footer.dart';
 import 'package:my_portfolio/features/home/presentation/home_my_work_list.dart';
+import 'package:my_portfolio/features/home/presentation/home_social_link.dart';
 import 'package:my_portfolio/features/home/presentation/home_tool_list.dart';
 import 'package:my_portfolio/style/app_size.dart';
 import 'package:my_portfolio/style/app_theme_controller.dart';
@@ -35,8 +37,8 @@ class Home extends StatelessWidget {
                 SliverToBoxAdapter(child: HomeToolList()),
                 SliverToBoxAdapter(child: HomeMyWorkList()),
                 SliverToBoxAdapter(child: ExperiencesBody()),
-                SliverToBoxAdapter(child: CreatedUsingFlutter()),
-                // SliverToBoxAdapter(child: MyFooter())
+                SliverToBoxAdapter(child: HomeSocialLink()),
+                SliverToBoxAdapter(child: HomeFooter())
               ],
             ),
           ),

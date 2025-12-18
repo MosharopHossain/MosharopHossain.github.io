@@ -31,4 +31,6 @@ class AppStrings {
   static const String githubUrl = "www.github.com/shafi.munshi";
   static const String linkedinUrl = "www.linkedin.com/shafi.munshi";
   static const String whatsappUrl = "www.whatsapp.com/shafi.munshi";
+
+  
 }
