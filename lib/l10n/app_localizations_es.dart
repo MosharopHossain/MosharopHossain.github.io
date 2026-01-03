@@ -9,16 +9,16 @@ class AppLocalizationsEs extends AppLocalizations {
   AppLocalizationsEs([String locale = 'es']) : super(locale);
 
   @override
-  String get home => 'Inicio';
+  String get home => 'Home';
 
   @override
   String get blog => 'Blog';
 
   @override
-  String get courses => 'Cursos';
+  String get courses => 'Courses';
 
   @override
-  String get aboutMe => 'Sobre mí';
+  String get aboutMe => 'About me';
 
   @override
   String get shafiMunshi => 'Shafi Munshi';
@@ -28,4 +28,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get cooperationRequest => 'Co-operate with me';
+
+  @override
+  String get flutterDeveloper => 'Flutter Developer';
 }

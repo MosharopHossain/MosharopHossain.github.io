@@ -28,4 +28,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cooperationRequest => 'Co-operate with me';
+
+  @override
+  String get flutterDeveloper => 'Flutter Developer';
 }
