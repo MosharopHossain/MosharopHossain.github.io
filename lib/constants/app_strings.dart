@@ -14,7 +14,7 @@ class AppStrings {
   static const String aiMlEnthusiast = '- AI/ML Enthusiast';
   static const String competitiveProgrammer = '- Competitive Programmer';
 
-  static const String seeMyWork = 'See My Work';
+  static const String seeMyWork = 'View My Work';
   static const String github = 'Github';
   static const String linkedin = 'LinkedIn';
   static const String codeforces = 'Codeforces';
