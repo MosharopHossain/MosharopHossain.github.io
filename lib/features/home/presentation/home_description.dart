@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:my_portfolio/extension.dart';
 import 'package:my_portfolio/style/app_colors.dart';
 import 'package:my_portfolio/widgets/seo_texts.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class SkillData {
   final IconData icon;
@@ -74,17 +75,30 @@ class HomeDescription extends StatelessWidget {
                     style: context.textStyles.titleSmBold
                         .copyWith(color: AppColors.green)),
                 GestureDetector(
-                    onTap: () {},
-                    child: Row(
-                      children: [
-                        Icon(Icons.download, color: AppColors.green),
-                        Text(
-                          'Download CV',
-                          style: context.textStyles.titleSmBold.copyWith(
-                            color: AppColors.green,
+                    onTap: () {
+                      // For web, open the PDF in a new tab for download
+                      launchUrlString(
+                        'https://drive.google.com/uc?export=download&id=1uZqR6ZUKjuv9R_aLKrkN8cwWFBG7pii9',
+                      );
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 12, vertical: 8),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: AppColors.green, width: 1),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(Icons.download, color: AppColors.green),
+                          Text(
+                            'Download CV',
+                            style: context.textStyles.titleSmBold.copyWith(
+                              color: AppColors.green,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ))
               ],
             ),

@@ -5,6 +5,7 @@ import 'package:my_portfolio/extension.dart';
 import 'package:my_portfolio/style/app_colors.dart';
 import 'package:my_portfolio/style/app_size.dart';
 import 'package:my_portfolio/widgets/seo_texts.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class HeroTexts extends StatefulWidget {
   const HeroTexts({super.key});
@@ -45,7 +46,6 @@ class _HeroTextsState extends State<HeroTexts> {
           text: AppStrings.myIntroduction,
           textAlign:
               context.isDesktopOrTablet ? TextAlign.start : TextAlign.center,
-
           style: context.textStyles.bodyLgMedium.copyWith(
             color: context.colorScheme.onBackground,
           ),
@@ -54,7 +54,6 @@ class _HeroTextsState extends State<HeroTexts> {
           text: AppStrings.passionateDeveloper,
           textAlign:
               context.isDesktopOrTablet ? TextAlign.start : TextAlign.center,
-
           style: context.textStyles.bodySmRegular.copyWith(
             color: context.colorScheme.onSurface,
           ),
@@ -86,25 +85,30 @@ class _HeroTextsState extends State<HeroTexts> {
                   borderRadius: BorderRadius.circular(20),
                 ),
               ),
-              AnimatedOpacity(
-                opacity: 1,
-                duration: const Duration(milliseconds: 200),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 12),
-                  child: Row(
-                    mainAxisAlignment: context.isDesktopOrTablet
-                        ? MainAxisAlignment.start
-                        : MainAxisAlignment.center,
-                    children: [
-                      SeoTexts(
-                        text: 'Say Hello',
-                        style: context.textStyles.bodySmRegular.copyWith(
-                          color: AppColors.white,
+              GestureDetector(
+                onTap: () {
+                  launchUrlString('mailto:${AppStrings.email}');
+                },
+                child: AnimatedOpacity(
+                  opacity: 1,
+                  duration: const Duration(milliseconds: 200),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 12),
+                    child: Row(
+                      mainAxisAlignment: context.isDesktopOrTablet
+                          ? MainAxisAlignment.start
+                          : MainAxisAlignment.center,
+                      children: [
+                        SeoTexts(
+                          text: 'Say Hello',
+                          style: context.textStyles.bodySmRegular.copyWith(
+                            color: AppColors.white,
+                          ),
                         ),
-                      ),
-                      Icon(Icons.arrow_right_alt,
-                          color: AppColors.white, size: 20),
-                    ],
+                        Icon(Icons.arrow_right_alt,
+                            color: AppColors.white, size: 20),
+                      ],
+                    ),
                   ),
                 ),
               ),

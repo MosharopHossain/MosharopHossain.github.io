@@ -23,7 +23,7 @@ class AppStrings {
   static const String availableForFreelance =
       "I'm available for freelance projects.";
   static const String contactMe = "Contact Me";
-  static const String email = "abc@gmail.com";
+  static const String email = "shafimunshi111@gmail.com";
   static const String copyright = "© 2024 Shafi Munshi. All rights reserved.";
   static const String phoneNumber = "+123 456 7890";
   // Social Media URLs
