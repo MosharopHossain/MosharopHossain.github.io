@@ -98,10 +98,10 @@ class _WorkItemState extends State<WorkItem>
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
-          width: context.width - 100,
-          height: 110 * ((context.width - 100) / 200),
+          width: context.width - 40,
+          height: 200,
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(12),
             child: AnimatedBuilder(
               animation: _blurAnimation,
               builder: (context, child) {
@@ -113,6 +113,7 @@ class _WorkItemState extends State<WorkItem>
                   child: Image.asset(
                     widget.projectData.imagePath,
                     fit: BoxFit.cover,
+                    width: double.infinity,
                   ),
                 );
               },
@@ -120,23 +121,157 @@ class _WorkItemState extends State<WorkItem>
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: SeoTexts(
+                      text: widget.projectData.title,
+                      style: context.textStyles.titleSmBold.copyWith(
+                        color: Colors.amber,
+                        fontWeight: FontWeight.w900,
+                        letterSpacing: 0.8,
+                        fontSize: 20,
+                        fontFamily: GoogleFonts.merienda().fontFamily,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                    decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Text(
+                      (widget.projectData.playStoreUrl != null
+                              ? 'Android'
+                              : '') +
+                          (widget.projectData.appStoreUrl != null
+                              ? ' & IOS'
+                              : ''),
+                      style: TextStyle(
+                        fontSize: 10,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              Gap(8),
               SeoTexts(
-                text: widget.projectData.title,
-                style: context.textStyles.bodyLgBold
-                    .copyWith(color: context.colorScheme.onBackground),
-                textAlign: TextAlign.left,
+                text: widget.projectData.subtitle,
+                style: context.textStyles.titleSmBold.copyWith(
+                  color: context.colorScheme.onBackground,
+                  fontWeight: FontWeight.w900,
+                  letterSpacing: 0.8,
+                  fontSize: 16,
+                  fontFamily: GoogleFonts.merienda().fontFamily,
+                ),
               ),
               Gap(8),
               SeoTexts(
                 text: widget.projectData.description,
-                maxLines: 4,
-                overflow: TextOverflow.ellipsis,
-                style: context.textStyles.bodyMdMedium
-                    .copyWith(color: context.colorScheme.onSurface),
+                maxLines: 5,
+                style: context.textStyles.bodySmRegular.copyWith(
+                  color: AppColors.grey[200],
+                  letterSpacing: 0.8,
+                  fontFamily: GoogleFonts.poppins().fontFamily,
+                  fontSize: 11,
+                  height: 1.4,
+                ),
+              ),
+              Gap(16),
+              Wrap(
+                spacing: 12,
+                runSpacing: 8,
+                children: [
+                  if (widget.projectData.videoUrl != null)
+                    SizedBox(
+                      height: 32,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.transparent,
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                            side: BorderSide(color: AppColors.white, width: 1),
+                          ),
+                        ),
+                        onPressed: () {
+                          launchUrlString(widget.projectData.videoUrl!);
+                        },
+                        child: Text(
+                          '▶️ Watch Video',
+                          style: TextStyle(
+                            fontFamily: GoogleFonts.poppins().fontFamily,
+                            color: AppColors.white,
+                            fontSize: 10,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ),
+                  if (widget.projectData.playStoreUrl != null)
+                    SizedBox(
+                      height: 32,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.transparent,
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                            side: BorderSide(color: AppColors.white, width: 1),
+                          ),
+                        ),
+                        onPressed: () {
+                          launchUrlString(widget.projectData.playStoreUrl!);
+                        },
+                        child: Text(
+                          'Play Store',
+                          style: TextStyle(
+                            fontFamily: GoogleFonts.poppins().fontFamily,
+                            color: AppColors.white,
+                            fontSize: 10,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ),
+                  if (widget.projectData.appStoreUrl != null)
+                    SizedBox(
+                      height: 32,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.transparent,
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                            side: BorderSide(color: AppColors.white, width: 1),
+                          ),
+                        ),
+                        onPressed: () {
+                          launchUrlString(widget.projectData.appStoreUrl!);
+                        },
+                        child: Text(
+                          'App Store',
+                          style: TextStyle(
+                            fontFamily: GoogleFonts.poppins().fontFamily,
+                            color: AppColors.white,
+                            fontSize: 10,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    )
+                ],
               ),
             ],
           ),
@@ -152,7 +287,7 @@ class _WorkItemState extends State<WorkItem>
         if (index % 2 == 0) ...[
           _coverAppImg(),
         ],
-        _allTextData(context),
+        _allTextDataForDesktop(context),
         if (index % 2 != 0) ...[
           _coverAppImg(),
         ],
@@ -160,7 +295,7 @@ class _WorkItemState extends State<WorkItem>
     );
   }
 
-  Container _allTextData(BuildContext context) {
+  Container _allTextDataForDesktop(BuildContext context) {
     return Container(
       constraints: BoxConstraints(
         maxWidth: 600,

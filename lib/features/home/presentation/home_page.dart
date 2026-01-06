@@ -36,7 +36,7 @@ class Home extends StatelessWidget {
                 )),
                 SliverToBoxAdapter(child: HomeToolList()),
                 SliverToBoxAdapter(child: HomeMyWorkList()),
-                SliverToBoxAdapter(child: ExperiencesBody()),
+                // SliverToBoxAdapter(child: ExperiencesBody()),
                 SliverToBoxAdapter(child: HomeSocialLink()),
                 SliverToBoxAdapter(child: HomeFooter())
               ],
