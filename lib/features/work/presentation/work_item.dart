@@ -1,10 +1,12 @@
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/extension.dart';
 import 'package:my_portfolio/style/app_colors.dart';
 import 'package:my_portfolio/widgets/seo_texts.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class ProjectData {
   final String title;
@@ -187,7 +189,10 @@ class _WorkItemState extends State<WorkItem>
                     color: Colors.green,
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  child: Text('Android & IOS'),
+                  child: Text((widget.projectData.playStoreUrl != null
+                          ? 'Android'
+                          : '') +
+                      (widget.projectData.appStoreUrl != null ? ' & IOS' : '')),
                 )
               ],
             ),
@@ -217,60 +222,72 @@ class _WorkItemState extends State<WorkItem>
             Row(
               spacing: 20,
               children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.transparent,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
-                          side: BorderSide(color: AppColors.white))),
-                  onPressed: () {},
-                  child: Text(
-                    '▶️ Watch Video',
-                    style: TextStyle(
-                        fontFamily: GoogleFonts.poppins().fontFamily,
-                        color: AppColors.white,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500),
+                if (widget.projectData.videoUrl != null)
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            side: BorderSide(color: AppColors.white))),
+                    onPressed: () {
+                      // Launch video URL
+                      launchUrlString(widget.projectData.videoUrl!);
+                    },
+                    child: Text(
+                      '▶️ Watch Video',
+                      style: TextStyle(
+                          fontFamily: GoogleFonts.poppins().fontFamily,
+                          color: AppColors.white,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500),
+                    ),
                   ),
-                ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.transparent,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
-                          side: BorderSide(color: AppColors.white))),
-                  onPressed: () {},
-                  child: Text(
-                    'Play Store',
-                    style: TextStyle(
-                        fontFamily: GoogleFonts.poppins().fontFamily,
-                        color: AppColors.white,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500),
+                if (widget.projectData.playStoreUrl != null)
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            side: BorderSide(color: AppColors.white))),
+                    onPressed: () {
+                      // Launch Play Store URL
+                      launchUrlString(widget.projectData.playStoreUrl!);
+                    },
+                    child: Text(
+                      'Play Store',
+                      style: TextStyle(
+                          fontFamily: GoogleFonts.poppins().fontFamily,
+                          color: AppColors.white,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500),
+                    ),
                   ),
-                ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.transparent,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
-                          side: BorderSide(color: AppColors.white))),
-                  onPressed: () {},
-                  child: Text(
-                    'App Store',
-                    style: TextStyle(
-                        fontFamily: GoogleFonts.poppins().fontFamily,
-                        color: AppColors.white,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500),
-                  ),
-                )
+                if (widget.projectData.appStoreUrl != null)
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            side: BorderSide(color: AppColors.white))),
+                    onPressed: () {
+                      // Launch App Store URL
+                      launchUrlString(widget.projectData.appStoreUrl!);
+                    },
+                    child: Text(
+                      'App Store',
+                      style: TextStyle(
+                          fontFamily: GoogleFonts.poppins().fontFamily,
+                          color: AppColors.white,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500),
+                    ),
+                  )
               ],
             ),
           ],
