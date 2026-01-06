@@ -47,7 +47,7 @@ class HomeDescription extends StatelessWidget {
       icon: Icons.rocket_launch_outlined,
       title: 'Projects',
       description:
-          'On Play Store and App Store, i have some live apps, maximum apps were made by a single company(MAAC), but those apps are used by Unilever BD,Samsung BD,Bat, etc',
+          'On Play Store and App Store, i have some live apps, maximum apps were made by a single company(MAAC), but those apps are used by ERP customers, etc',
       iconColor: Color(0xFF00FF88),
     ),
   ];

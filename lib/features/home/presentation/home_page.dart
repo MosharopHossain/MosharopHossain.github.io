@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_portfolio/app_text_styles.dart';
 import 'package:my_portfolio/extension.dart';
-import 'package:my_portfolio/features/home/presentation/experiences_body.dart';
 import 'package:my_portfolio/features/home/presentation/hero_widget.dart';
 import 'package:my_portfolio/features/home/presentation/home_footer.dart';
 import 'package:my_portfolio/features/home/presentation/home_my_work_list.dart';
@@ -11,8 +10,6 @@ import 'package:my_portfolio/features/home/presentation/home_tool_list.dart';
 import 'package:my_portfolio/style/app_size.dart';
 import 'package:my_portfolio/style/app_theme_controller.dart';
 import 'package:my_portfolio/widgets/background_blur.dart';
-import 'package:my_portfolio/widgets/created_using_flutter.dart';
-import 'package:my_portfolio/widgets/my_footer.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});

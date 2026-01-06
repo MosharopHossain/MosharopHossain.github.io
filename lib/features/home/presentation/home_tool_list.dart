@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:my_portfolio/extension.dart';
 import 'package:my_portfolio/features/home/presentation/home_description.dart';
-import 'package:my_portfolio/style/app_colors.dart';
 import 'package:my_portfolio/widgets/seo_texts.dart';
 
 class HomeToolList extends StatelessWidget {

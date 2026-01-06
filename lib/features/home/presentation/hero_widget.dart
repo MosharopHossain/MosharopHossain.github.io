@@ -5,7 +5,6 @@ import 'package:my_portfolio/features/home/presentation/hero_buttons.dart';
 import 'package:my_portfolio/features/home/presentation/hero_image.dart';
 import 'package:my_portfolio/features/home/presentation/hero_texts.dart';
 import 'package:my_portfolio/style/app_size.dart';
-import 'package:my_portfolio/widgets/created_using_flutter.dart';
 
 class HeroWidget extends StatelessWidget {
   const HeroWidget({super.key});
