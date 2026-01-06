@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/constants/app_strings.dart';
 import 'package:my_portfolio/extension.dart';
-import 'package:my_portfolio/l10n/app_strings.dart';
+
 import 'package:my_portfolio/style/app_size.dart';
 import 'package:my_portfolio/widgets/styled_button.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -63,12 +64,12 @@ class SmallHeroButtons extends StatelessWidget {
       children: [
         SizedBox(
           width: double.infinity,
-          child: PrimaryButton(title: context.texts.courses),
+          child: PrimaryButton(title: AppStrings.courses),
         ),
         Gap(Insets.lg),
         SizedBox(
           width: double.infinity,
-          child: OutlineButton(title: context.texts.cooperationRequest),
+          child: OutlineButton(title: AppStrings.cooperationRequest),
         ),
       ],
     );

@@ -4,16 +4,21 @@ import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/extension.dart';
 import 'package:my_portfolio/style/app_colors.dart';
-import 'package:my_portfolio/widgets/seo_texts.dart'; 
-import 'package:seo_renderer/renderers/text_renderer/text_renderer_style.dart';
+import 'package:my_portfolio/widgets/seo_texts.dart';
 
 class ProjectData {
   final String title;
   final String subtitle;
   final String description;
   final String imagePath;
+  final String? videoUrl;
+  final String? playStoreUrl;
+  final String? appStoreUrl;
 
   const ProjectData({
+    this.videoUrl,
+    this.playStoreUrl,
+    this.appStoreUrl,
     required this.title,
     required this.subtitle,
     required this.description,
@@ -121,7 +126,6 @@ class _WorkItemState extends State<WorkItem>
                 text: widget.projectData.title,
                 style: context.textStyles.bodyLgBold
                     .copyWith(color: context.colorScheme.onBackground),
-                textRendererStyle: TextRendererStyle.header4,
                 textAlign: TextAlign.left,
               ),
               Gap(8),
@@ -176,7 +180,6 @@ class _WorkItemState extends State<WorkItem>
                     fontSize: 24,
                     fontFamily: GoogleFonts.merienda().fontFamily,
                   ),
-                  textRendererStyle: TextRendererStyle.header3,
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
@@ -198,7 +201,6 @@ class _WorkItemState extends State<WorkItem>
                 fontSize: 22,
                 fontFamily: GoogleFonts.merienda().fontFamily,
               ),
-              textRendererStyle: TextRendererStyle.header3,
             ),
             Gap(5),
             SeoTexts(
@@ -210,7 +212,6 @@ class _WorkItemState extends State<WorkItem>
                 fontFamily: GoogleFonts.poppins().fontFamily,
                 fontSize: 12,
               ),
-              textRendererStyle: TextRendererStyle.header3,
             ),
             Gap(20),
             Row(

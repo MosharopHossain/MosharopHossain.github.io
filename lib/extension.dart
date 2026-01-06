@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/app_text_styles.dart';
-import 'package:my_portfolio/l10n/app_localizations.dart';
+
 import 'package:my_portfolio/style/app_size.dart';
 
-enum FormFactorType{
-  mobile, tablet, desktop
-}
+enum FormFactorType { mobile, tablet, desktop }
 
-extension StyledContent on BuildContext{
+extension StyledContent on BuildContext {
   MediaQueryData get mq => MediaQuery.of(this);
 
-  double get width=> mq.size.width;
-  double get height=> mq.size.height;
+  double get width => mq.size.width;
+  double get height => mq.size.height;
 
-  ThemeData get theme=> Theme.of(this); 
+  ThemeData get theme => Theme.of(this);
 
-  FormFactorType get formFactor{
+  FormFactorType get formFactor {
     if (width < 600) {
       return FormFactorType.mobile;
     } else if (width < 900) {
@@ -30,8 +28,8 @@ extension StyledContent on BuildContext{
   bool get isDesktop => formFactor == FormFactorType.desktop;
   bool get isDesktopOrTablet => isDesktop || isTablet;
 
-  AppTextStyles get textStyles{
-    switch(formFactor){
+  AppTextStyles get textStyles {
+    switch (formFactor) {
       case FormFactorType.mobile:
       case FormFactorType.tablet:
         return SmallTextStyles();
@@ -40,9 +38,8 @@ extension StyledContent on BuildContext{
     }
   }
 
-
-   AppInsets get insets{
-    switch(formFactor){
+  AppInsets get insets {
+    switch (formFactor) {
       case FormFactorType.mobile:
         return SmallInsets();
       case FormFactorType.tablet:
@@ -51,8 +48,5 @@ extension StyledContent on BuildContext{
     }
   }
 
-
-
-  AppLocalizations get texts => AppLocalizations.of(this)?? lookupAppLocalizations(Locale('en'));
   ColorScheme get colorScheme => theme.colorScheme;
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:seo_renderer/seo_renderer.dart';
 
 class SeoTexts extends StatelessWidget {
   const SeoTexts({
@@ -9,13 +8,12 @@ class SeoTexts extends StatelessWidget {
     this.style,
     this.maxLines,
     this.overflow,
-    this.textRendererStyle,
   });
 
   final String text;
   final TextStyle? style;
   final TextAlign? textAlign;
-  final TextRendererStyle? textRendererStyle;
+
   final int? maxLines;
   final TextOverflow? overflow;
 

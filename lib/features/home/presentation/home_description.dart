@@ -3,7 +3,6 @@ import 'package:gap/gap.dart';
 import 'package:my_portfolio/extension.dart';
 import 'package:my_portfolio/style/app_colors.dart';
 import 'package:my_portfolio/widgets/seo_texts.dart';
-import 'package:seo_renderer/renderers/text_renderer/text_renderer_style.dart';
 
 class SkillData {
   final IconData icon;
@@ -149,7 +148,6 @@ class HomeDescription extends StatelessWidget {
                       color: Colors.white,
                       fontWeight: FontWeight.w700,
                       fontSize: 14),
-                  textRendererStyle: TextRendererStyle.header3,
                 ),
               ),
             ],

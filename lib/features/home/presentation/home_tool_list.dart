@@ -4,7 +4,6 @@ import 'package:my_portfolio/extension.dart';
 import 'package:my_portfolio/features/home/presentation/home_description.dart';
 import 'package:my_portfolio/style/app_colors.dart';
 import 'package:my_portfolio/widgets/seo_texts.dart';
-import 'package:seo_renderer/renderers/text_renderer/text_renderer_style.dart';
 
 class HomeToolList extends StatelessWidget {
   const HomeToolList({super.key});
@@ -31,7 +30,6 @@ class HomeToolList extends StatelessWidget {
             style: context.textStyles.titleSmBold.copyWith(
               color: Colors.white70,
             ),
-            textRendererStyle: TextRendererStyle.header3,
           ),
         ),
         const Gap(10),

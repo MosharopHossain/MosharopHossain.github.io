@@ -2,12 +2,11 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:my_portfolio/constants/app_strings.dart';
 import 'package:my_portfolio/extension.dart';
-import 'package:my_portfolio/l10n/app_strings.dart';
 import 'package:my_portfolio/style/app_colors.dart';
 import 'package:my_portfolio/style/app_size.dart';
 import 'package:my_portfolio/widgets/seo_texts.dart';
-import 'package:seo_renderer/seo_renderer.dart';
 
 class HeroTexts extends StatefulWidget {
   const HeroTexts({super.key});
@@ -29,7 +28,6 @@ class _HeroTextsState extends State<HeroTexts> {
           text: AppStrings.myProfession,
           textAlign:
               context.isDesktopOrTablet ? TextAlign.start : TextAlign.center,
-          textRendererStyle: TextRendererStyle.header1,
           style: context.textStyles.titleLgBold.copyWith(
             color: context.colorScheme.onBackground,
           ),
@@ -49,7 +47,7 @@ class _HeroTextsState extends State<HeroTexts> {
           text: AppStrings.myIntroduction,
           textAlign:
               context.isDesktopOrTablet ? TextAlign.start : TextAlign.center,
-          textRendererStyle: TextRendererStyle.paragraph,
+
           style: context.textStyles.bodyLgMedium.copyWith(
             color: context.colorScheme.onBackground,
           ),
@@ -58,7 +56,7 @@ class _HeroTextsState extends State<HeroTexts> {
           text: AppStrings.passionateDeveloper,
           textAlign:
               context.isDesktopOrTablet ? TextAlign.start : TextAlign.center,
-          textRendererStyle: TextRendererStyle.paragraph,
+
           style: context.textStyles.bodySmRegular.copyWith(
             color: context.colorScheme.onSurface,
           ),

@@ -3,39 +3,64 @@ import 'package:gap/gap.dart';
 import 'package:my_portfolio/extension.dart';
 import 'package:my_portfolio/features/work/presentation/work_item.dart';
 import 'package:my_portfolio/widgets/seo_texts.dart';
-import 'package:seo_renderer/renderers/text_renderer/text_renderer_style.dart';
+
 
 // Project data constants
-const List<ProjectData> _projects = [
+const List<ProjectData> projectsData = [
   ProjectData(
-    title: 'Tijarah ',
+    title: 'Tijarah',
     subtitle:
-        'Innovative financial services with cutting-edge technology for modern investors.',
+        'A POS and Inventory Management System for Small and Medium Businesses',
     description:
-        'We\'ve mastered the art of building high performance Shopify stores. Simply, affordably, and without the headaches.',
-    imagePath: 'assets/template_mock.jpg',
+        'Comprehensive point-of-sale solution with real-time inventory tracking, sales analytics, and multi-location support for retail businesses.',
+    imagePath: 'assets/images/tijarah_cover.png',
+    playStoreUrl:
+        'https://play.google.com/store/apps/details?id=com.ragory.tijarah.software&pcampaignid=web_share',
   ),
   ProjectData(
-    title: 'MARKETLEAP',
-    subtitle: 'Let\'s get you growing',
-    description:
-        'Seamless ecommerce for D2C brands. We make it easy, so you can make it big.',
-    imagePath: 'assets/template_mock.jpg',
-  ),
+      title: 'SofiaIQ Rust',
+      subtitle: 'Educational app to learn Rust programming language',
+      description:
+          'Interactive learning platform featuring hands-on coding exercises, memory safety tutorials, quiz and performance optimization guides for Rust developers.',
+      imagePath: 'assets/images/sofiaiq_cover.png',
+      appStoreUrl: 'https://apps.apple.com/in/app/sofiaiq-rust/id6739019042',
+      playStoreUrl:
+          'https://play.google.com/store/apps/details?id=com.preciq.sofiaiqrust&pcampaignid=web_share'),
   ProjectData(
-    title: 'EXOPRIME',
-    subtitle: 'Premium Investment Solutions',
-    description:
-        'Innovative financial services with cutting-edge technology for modern investors.',
-    imagePath: 'assets/template_mock.jpg',
-  ),
+      title: 'Invi',
+      subtitle: 'Mobile app version of Invi web platform',
+      description:
+          'Cross-platform mobile application providing seamless access to investment portfolio management, real-time market data, and financial planning tools.',
+      imagePath: 'assets/images/invi_cover.png',
+      playStoreUrl:
+          'https://play.google.com/store/apps/details?id=com.ragory.invi.software&pcampaignid=web_share'),
   ProjectData(
-    title: 'LEN FORKAS',
-    subtitle: 'INSPIRE YOUR TEAM',
-    description:
-        'Scientific leadership and speaker expertise to transform your organization.',
-    imagePath: 'assets/template_mock.jpg',
-  ),
+      title: 'Invi Client',
+      subtitle: 'For Business sub client',
+      description:
+          'Enterprise dashboard for business clients to manage investment accounts, track performance metrics, and access institutional-grade financial services.',
+      imagePath: 'assets/images/invi_client_cover.png',
+      appStoreUrl: 'https://apps.apple.com/in/app/invi-client/id6745792579',
+      playStoreUrl:
+          'https://play.google.com/store/apps/details?id=com.ragory.invi.client&pcampaignid=web_share'),
+  ProjectData(
+      title: 'Invi SR',
+      subtitle: 'For Service Recipient sub client',
+      description:
+          'Specialized interface for service recipients to monitor investment progress, access personalized recommendations, and communicate with financial advisors.',
+      imagePath: 'assets/images/invi_sr_cover.png',
+      playStoreUrl:
+          'https://play.google.com/store/apps/details?id=com.ragory.invi.sr&pcampaignid=web_share'),
+  ProjectData(
+      title: 'LSE',
+      subtitle: 'Smart school management app',
+      description:
+          'Integrated school administration platform featuring student enrollment, grade management, attendance tracking, and parent-teacher communication tools.',
+      imagePath: 'assets/images/school_cover.png',
+      appStoreUrl:
+          'https://apps.apple.com/in/app/london-school-of-english-lse/id6745716675',
+      playStoreUrl:
+          'https://play.google.com/store/apps/details?id=com.ragory.lse&pcampaignid=web_share'),
 ];
 
 class HomeMyWorkList extends StatefulWidget {
@@ -82,7 +107,7 @@ class _HomeMyWorkListState extends State<HomeMyWorkList> {
               style: context.textStyles.titleSmBold.copyWith(
                 color: seeMyWorkTxtColor,
               ),
-              textRendererStyle: TextRendererStyle.header3,
+
             ),
           ),
         ),
@@ -114,10 +139,10 @@ class HomeCourseListDesktop extends StatelessWidget {
         //   crossAxisSpacing: 20,
         //   mainAxisSpacing: 20,
         // ),
-        itemCount: _projects.length,
+        itemCount: projectsData.length,
         itemBuilder: (context, index) {
           return WorkItem(
-            projectData: _projects[index],
+            projectData: projectsData[index],
             index: index,
           );
         },
@@ -134,11 +159,12 @@ class HomeCourseListMobile extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: context.insets.padding),
       child: Column(
-        children: _projects
+        children: projectsData
             .map((project) => Padding(
                   padding: const EdgeInsets.only(bottom: 16),
                   child: WorkItem(
-                      projectData: project, index: _projects.indexOf(project)),
+                      projectData: project,
+                      index: projectsData.indexOf(project)),
                 ))
             .toList(),
       ),
